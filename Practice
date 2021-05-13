@@ -1,0 +1,55 @@
+--SQL PROGRAMMING-------------------------------
+-------------------------------------------------
+--alter table dbo.Person add Gender char(1) null;
+
+--update dbo.Person
+--set Gender = 'M';
+
+
+--SELECT * FROM dbo.Person
+
+
+
+--Truncate table dbo.Person
+--insert into  Person(PersonID,Title,FirstName,LastName,EmailAddress,WorkEmailAddress,IsDeleted,Gender)
+--values (1,Default,Default,Default,Default,Default,1,'F');
+
+--SELECT * FROM dbo.Person
+
+
+--DECLARE VARIABLES---------------------------------------------------
+declare 
+@FirstName  varchar(50),
+@LastName	varchar(50),
+@Title		varchar(50);
+--or
+--declare @FirstName  varchar(50),
+--declare @LastName	varchar(50),
+--declare @Title		varchar(50);
+
+--SET A VALUE TO YOUR VARIABLES--You must set one variable at a time
+--set @FirstName = 'Daniel';
+--set @LastName = 'Simmer';
+--set @Title = 'Mr.';
+
+--Another way to set a value is the select statement
+--select	@FirstName = 'Daniel';
+--		@LastName = 'Simmer';
+--		@Title = 'Mr.';
+--Another way to use select statement to assign variables
+select	@FirstName = a.FirstName,
+		@LastName = a.LastName,
+		@Title = a.Title
+from	dbo.Person a
+where	a.PersonId = 1;
+--Another way
+select	@FirstName as FirstName,
+		@LastName as LastName,
+		@Title as Title;
+
+--Another way to out to the screen
+
+print @FirstName;
+print @LastName;
+print @Title;
+
